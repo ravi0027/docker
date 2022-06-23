@@ -38,8 +38,7 @@ jobs:
         uses: medyagh/setup-minikube@master
         
       # now you can run kubectl to see the pods in the cluster
-      - name: Try the minikub!
-        run: minikube tunnel
+      
       - name: Try the cluster!
         run: kubectl get pods -A
       - name: Build image
@@ -55,6 +54,6 @@ jobs:
          minikube service list
          minikube service example --url
          echo -n "------------------opening the service------------------"
-         curl $(minikube service example--url)
+         curl $(minikube service example --url)
 
       

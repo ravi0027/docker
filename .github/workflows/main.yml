@@ -49,7 +49,7 @@ jobs:
 
       - name: Deploy to minikube
         run:
-         helm install my-chart-name ./ --values ./values.yaml
+         kubectl apply -f deploy/deploy-minikube.yaml
       - name: Test service URLs
         run: |
          minikube service list

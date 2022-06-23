@@ -46,7 +46,8 @@ jobs:
          docker images
 
       - name: Deploy to minikube
-        run:
+        run: |
+         minikube tunnel
          kubectl apply -f minikube.yaml
       - name: Test service URLs
         run: |

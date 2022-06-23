@@ -2,7 +2,7 @@ data ?= data.env
 include $(data)
 export $(shell sed 's/=.*//' $(data))
 
-build:	8build-version
+build:	build-version
 	
 build-version:
 	docker build -t ${DOCKER_NAME}/${REPO_NAME}:${VERSION}  .

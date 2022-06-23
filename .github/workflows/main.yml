@@ -50,8 +50,6 @@ jobs:
          kubectl apply -f minikube.yaml
       - name: Test service URLs
         run: |
-         minikube service list
-         minikube service discover --url
          echo -n "------------------opening the service------------------"
          curl $(minikube service discover --url)/version
 

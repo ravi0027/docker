@@ -58,6 +58,8 @@ jobs:
       #   run: minikube tunnel
       - name: get svc
         run: kubectl get svc
+      - name: run tannel
+        run: minikube service hello-minikube1 --url
       - name: get pode
         run: kubectl get pods
       

@@ -28,12 +28,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    name: example
+  name: example
 spec:
-    type: LoadBalancer
-    selector:
-        app: example
-    ports:
-        - port: 80
-          targetPort: 80
+  selector:
+    app: httpd
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  externalIPs:
+    - 1.2.4.120
 

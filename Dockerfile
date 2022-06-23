@@ -1,7 +1,11 @@
-FROM node:16.0.0-alpine 
+FROM node:16.3.0-alpine as space
 WORKDIR /app
 COPY . .
-RUN npm install -g npm@8.9.0
+COPY package.json /app
+RUN npm install
 RUN npm run build
-CMD ["npm","start","dockercmd"]
+
+FROM nginx:1.19.0
+WORKDIR /app
+COPY --from=space /app/build /usr/share/nginx/html
 EXPOSE 8080

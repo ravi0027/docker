@@ -48,13 +48,14 @@ jobs:
       - name: Deploy to minikube
         run: 
          kubectl apply -f minikube.yaml
-      - name: Test service URLs
-        run: |
-         minikube service list
-         minikube service example --url
-         echo -n "------------------opening the service------------------"
-         curl $(minikube service example --url)
+      # - name: Test service URLs
+      #   run: |
+      #    minikube service list
+      #    minikube service example --url
+      #    echo -n "------------------opening the service------------------"
+      #    curl $(minikube service example --url)
       - name: Try the minikube!
         run: minikube tunnel
-
+      - name: get svc
+        run: kubectl get svc
       

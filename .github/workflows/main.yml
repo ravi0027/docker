@@ -61,5 +61,5 @@ jobs:
       - name: run tannel
         run: minikube service example --url
       - name: get pode
-        run: kubectl get pods
+        run: kubectl get svc
       

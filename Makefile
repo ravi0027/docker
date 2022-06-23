@@ -6,7 +6,7 @@ build:
 	build-version
 	
 build-version:
-    docker build -t ${IMAGE}:${VERSION}  .
+	docker build -t ${IMAGE}:${VERSION}  .
 
 tag-latest:
 	docker tag ${IMAGE}:${VERSION} ${IMAGE}:latest

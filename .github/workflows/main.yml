@@ -59,7 +59,7 @@ jobs:
       - name: get svc
         run: kubectl get svc
       - name: run tannel
-        run: minikube service hello-minikube1 --url
+        run: minikube service example --url
       - name: get pode
         run: kubectl get pods
       

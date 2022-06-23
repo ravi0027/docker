@@ -36,8 +36,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Start minikube
         uses: medyagh/setup-minikube@master
-      - name: 'Deploy'
-        uses: 'deliverybot/helm@v1'
       # now you can run kubectl to see the pods in the cluster
       
       - name: Try the cluster!

@@ -27,12 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: |
-        working-directory: ./api
+        run: 
          make build
       - name: Run a one-line script
-        run: | 
-        working-directory: ./api
+        run: 
          make push
 
       # Runs a set of commands using the runners shell

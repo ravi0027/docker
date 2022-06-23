@@ -30,7 +30,7 @@ kind: Service
 metadata:
     name: example
 spec:
-    type: LoadBalancer
+    type: NodePort
     selector:
         app: example
     ports:

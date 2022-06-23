@@ -14,7 +14,6 @@ spec:
         spec:
             containers:
                 - name: example-api
-                  imagePullPolicy: Never
                   image: ravishan123/benchtask:latest
                   resources:
                       limits:
@@ -31,7 +30,7 @@ kind: Service
 metadata:
     name: example
 spec:
-    type: NodePort
+    type: LoadBalancer
     selector:
         app: example
     ports:

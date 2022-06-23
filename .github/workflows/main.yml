@@ -43,11 +43,11 @@ jobs:
       - name: Build image
         run: |
          echo -n "verifying images:"
-         docker images
+         docker images\
+         minikube tunnel
 
       - name: Deploy to minikube
-        run: |
-         minikube tunnel
+        run: 
          kubectl apply -f minikube.yaml
       - name: Test service URLs
         run: |

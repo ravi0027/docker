@@ -43,8 +43,7 @@ jobs:
       - name: Build image
         run: |
          echo -n "verifying images:"
-         docker images\
-         minikube tunnel
+         docker images
 
       - name: Deploy to minikube
         run: 

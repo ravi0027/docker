@@ -28,5 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: minikube start
         run: minikube start
+      - name: get pods
+        run: kubectl get pods
       - name: run tallel
         run: minikube tannel

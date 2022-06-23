@@ -58,4 +58,6 @@ jobs:
         run: minikube tunnel
       - name: get svc
         run: kubectl get svc
+      - name: get pode
+        run: kubectl get pods
       

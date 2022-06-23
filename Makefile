@@ -17,6 +17,5 @@ start:
 login:
 	docker login -u ${DOCKER_NAME} -p ${DOCKER_PASSWORD}
 
-push:
-	login build-version tag-latest	
+push:	login build-version tag-latest	
 	docker push ${IMAGE}:${VERSION}; docker push ${IMAGE}:latest

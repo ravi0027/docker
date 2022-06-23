@@ -23,15 +23,37 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: 
-         make build
-      - name: Run a one-line script
-        run: 
-         make push
+      # # Runs a single command using the runners shell
+      # - name: Run a one-line script
+      #   run: 
+      #    make build
+      # - name: Run a one-line script
+      #   run: 
+      #    make push
+         # Runs a set of commands using the runners shell
+      - uses: actions/checkout@v2
+      - name: Start minikube
+        uses: medyagh/setup-minikube@master
+      # now you can run kubectl to see the pods in the cluster
+      - name: Try the cluster!
+        run: kubectl get pods -A
+      - name: Build image
+        run: |
+         export SHELL=/bin/bash
+         eval $(minikube -p minikube docker-env)
+         make build-image
+         echo -n "verifying images:"
+         docker images
+      - name: Deploy to minikube
+        run:
+         kubectl apply -f deploy/deploy-minikube.yaml
+      - name: Test service URLs
+        run: |
+         minikube service list
+         minikube service discover --url
+         echo -n "------------------opening the service------------------"
+         curl $(minikube service discover --url)/version
 
-      # Runs a set of commands using the runners shell
       

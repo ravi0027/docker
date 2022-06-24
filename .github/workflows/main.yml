@@ -61,6 +61,6 @@ jobs:
       - name: get pode 
         run: kubectl get po
       - name: curl
-        run: curl http://$(kubectl get svc example | awk 'FNR == 2 {print $3}')
+        run: curl $(kubectl get svc example | awk 'FNR == 2 {print $3}')
   
       

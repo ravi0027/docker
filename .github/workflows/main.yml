@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy to minikube
         run: 
-         kubectl apply -f minikube.yaml
+         helm install bench1 benchtask/ --values benchtask/values.yaml
       # - name: Test service URLs
       #   run: |
       #    minikube service list
@@ -60,7 +60,7 @@ jobs:
         run: kubectl get svc
       - name: get pode 
         run: kubectl get svc
-      - name: curl
-        run: curl $(kubectl get svc example  clusterip):80
+      # - name: curl
+      #   run: curl $(kubectl get svc example  clusterip):80
   
       

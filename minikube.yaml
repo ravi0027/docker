@@ -14,7 +14,7 @@ spec:
         spec:
             containers:
                 - name: example-api
-                  image: ravishan123/benchtask:latest
+                      image: ravishan123/reactapp:latest
                   resources:
                       limits:
                           cpu: 50m

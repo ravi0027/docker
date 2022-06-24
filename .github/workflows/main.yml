@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy to minikube
         run: 
-         kubectl apply -f minikube.yaml
+         helm install my-chart-name ./ --values ./values.yaml
       # - name: Test service URLs
       #   run: |
       #    minikube service list
@@ -61,6 +61,6 @@ jobs:
       - name: get pode 
         run: kubectl get svc
       - name: curl
-        run:  curl localhost:80
+        run:  curl chart-example.local:80
   
       

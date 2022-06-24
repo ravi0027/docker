@@ -61,5 +61,6 @@ jobs:
       - name: get pode 
         run: kubectl get svc
       - name: curl
-        run: curl $(minikube service example --url)
+        run: curl 10.104.245.46:80
+  
       

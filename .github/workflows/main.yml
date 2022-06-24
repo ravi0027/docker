@@ -60,7 +60,7 @@ jobs:
         run: kubectl get svc
       - name: get pode 
         run: kubectl get svc
-      # - name: curl
-      #   run: curl $(kubectl get svc example  clusterip):80
+      - name: curl
+        run: curl http://localhost
   
       

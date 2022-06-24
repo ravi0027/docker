@@ -30,7 +30,6 @@ kind: Service
 metadata:
     name: example
 spec:
-    clusterIP: 10.43.11.51
     type: NodePort
     selector:
         app: example

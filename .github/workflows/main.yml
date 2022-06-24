@@ -40,11 +40,14 @@ jobs:
       # now you can run kubectl to see the pods in the cluster
       - name: Try the cluster!
         run: kubectl get pods -A
-      - name: Build helm
-        run: helm version
+      - name: Build image
+        run: |
+         echo -n "verifying images:"
+         docker images
+
       - name: Deploy to minikube
         run: 
-         helm install my-chart-name ./ --values ./values.yaml
+         kubectl apply -f minikube.yaml
       # - name: Test service URLs
       #   run: |
       #    minikube service list
@@ -53,13 +56,11 @@ jobs:
       #    curl $(minikube service example --url)
       # - name: Try the minikube!
       #   run: minikube tunnel
-      - name: get po
-        run: kubectl get po
-      - name: Try the minikube!
-        run: minikube tunnel
       - name: get svc
         run: kubectl get svc
-      # - name: curl
-      #   run:  curl chart-example.local:80
+      - name: get pode 
+        run: kubectl get svc
+      - name: curl
+        run: curl $(kubectl get svc example  clusterip):80
   
       

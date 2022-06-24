@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy to minikube
         run: 
-         helm install bench1 benchtask/ --values benchtask/values.yaml
+         helm install bench1 ./ --values ./values.yaml
       # - name: Test service URLs
       #   run: |
       #    minikube service list

@@ -47,11 +47,6 @@ jobs:
 
       - name: Deploy to minikube
         run:   kubectl apply -f minikube.yaml
-      - name: Sleep for 300 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-         time: '150s
-         
       # - name: Test service URLs
       #   run: |
       #    minikube service list
@@ -60,6 +55,10 @@ jobs:
       #    curl $(minikube service example --url)
       # - name: Try the minikube!
       #   run: minikube tunnel
+      - name: Sleep for 300 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+         time: '150s'
       
       - name: get svc
         run: kubectl get svc
@@ -71,6 +70,3 @@ jobs:
         run: kubectl get po
       - name: curl
         run: curl $(minikube service example --url)
-        
-  
-      
